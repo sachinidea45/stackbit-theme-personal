@@ -15,9 +15,9 @@ logicFields:
   - grid_section.background_image_opacity
   - cta_section.background_image_opacity
   - form_section.background_image_opacity
-metadata: 
-  title: DIY
-  description: A "do it yourself" Stackbit theme
+metadata:
+  title: Personal
+  description: Personal Stackbit theme
   author: Stackbit
   authorURL: 'https://www.stackbit.com'
   images:
@@ -25,20 +25,20 @@ metadata:
     large: images/demo-1024x768.png
 stackbit_banner:
   show_banner: true
-  name: DIY
-  create_url: 'https://app.stackbit.com/create?theme=diy'
-  github_url: 'https://github.com/stackbithq/stackbit-theme-diy'
+  name: Personal
+  create_url: 'https://app.stackbit.com/create?theme=personal'
+  github_url: 'https://github.com/stackbit/stackbit-theme-personal'
 models:
   config:
     type: config
     label: Site configuration
     fields:
-      - type: string
-        name: description
-        label: Site description
-        description: The default site description used in meta data
+      - type: image
+        name: favicon
+        label: Favicon
+        description: A square icon that represents your website
       - type: enum
-        name: layout
+        name: layout_type
         label: Layout
         options:
           - full-width
@@ -105,6 +105,10 @@ models:
         name: logo
         label: Logo
         description: The logo image displayed on the left side
+      - type: string
+        name: logo_alt
+        label: Logo alt text
+        description: The alt text of the logo image
       - type: boolean
         name: has_primary_nav
         label: Enable primary navigation menu
@@ -170,6 +174,10 @@ models:
         name: logo
         label: Logo
         description: The logo image displayed on the left side
+      - type: string
+        name: logo_alt
+        label: Logo alt text
+        description: The alt text of the logo image
       - type: boolean
         name: has_primary_nav
         label: Enable primary navigation menu
@@ -264,8 +272,10 @@ models:
         label: Last name
       - type: image
         name: photo
-        label: Photo
-        description: The photo of the author
+        label: Image
+      - type: string
+        name: photo_alt
+        label: Image alt text
   category:
     type: data
     label: Category
@@ -315,10 +325,9 @@ models:
         label: Title
         description: The title of the page
         required: true
-      - type: string
-        name: excerpt
-        label: Excerpt
-        description: The excerpt of the page displayed in meta data
+      - type: model
+        name: seo
+        models: [stackbit_page_meta]
   post:
     type: page
     urlPath: "/blog/{slug}"
@@ -367,24 +376,35 @@ models:
       - type: string
         name: excerpt
         label: Excerpt
-        description: The excerpt of the post displayed in the blog feed and meta data
+        description: The excerpt of the post displayed in the blog feed
       - type: image
         name: thumb_image
-        label: Blog feed image
+        label: Image (blog feed)
         description: The image displayed in the blog feed
+      - type: string
+        name: thumb_image_alt
+        label: Image alt text (blog feed)
+        description: The alt text of the blog feed image
       - type: image
         name: image
-        label: Featured image
-        description: The image displayed in the blog post
+        label: Image (single post)
+        description: The image displayed in the single post
+      - type: string
+        name: image_alt
+        label: Image alt text (single post)
+        description: The alt text of the single post image
       - type: enum
         name: image_position
-        label: Featured image position
+        label: Image position (single post)
         options:
           - left
           - right
           - top
         default: top
         description: The featured image position in the blog post relative to the post header content
+      - type: model
+        name: seo
+        models: [stackbit_page_meta]
   advanced:
     type: page
     label: Advanced page
@@ -396,10 +416,6 @@ models:
         label: Title
         description: The title of the page
         required: true
-      - type: string
-        name: excerpt
-        label: Excerpt
-        description: The excerpt of the page displayed in meta data
       - type: list
         name: sections
         label: Sections
@@ -414,6 +430,9 @@ models:
             - blog_feed_section
             - cta_section
             - form_section
+      - type: model
+        name: seo
+        models: [stackbit_page_meta]
   hero_section:
     type: object
     label: Hero section
@@ -441,6 +460,10 @@ models:
         name: image
         label: Image
         description: The image of the section
+      - type: string
+        name: image_alt
+        label: Image alt text
+        description: The alt text of the section image
       - type: text
         name: video_embed_html
         label: Video Embed Code
@@ -1281,6 +1304,10 @@ models:
         name: image
         label: Image
         description: The image of the feature
+      - type: string
+        name: image_alt
+        label: Image alt text
+        description: The alt text of the feature image
       - type: text
         name: video_embed_html
         label: Video Embed Code
@@ -1376,6 +1403,10 @@ models:
         name: image
         label: Image
         description: The image of the item
+      - type: string
+        name: image_alt
+        label: Image alt text
+        description: The alt text of the item image
       - type: enum
         name: image_position
         label: Image position
@@ -1486,6 +1517,8 @@ models:
           - github
           - instagram
           - linkedin
+          - pinterest
+          - reddit
           - twitter
           - vimeo
           - youtube
@@ -1502,3 +1535,57 @@ models:
         name: new_window
         label: Open in new tab/window
         default: false
+      - type: boolean
+        name: no_follow
+        label: No follow
+        default: false
+        description: 'Add rel="nofollow" attribute to the link'
+  stackbit_page_meta:
+    type: object
+    label: Page meta data
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: 'The page title that goes into the <title> tag'
+        default: ""
+      - type: string
+        name: description
+        label: Description
+        description: 'The page description that goes into the <meta name="description"> tag'
+        default: ""
+      - type: list
+        name: robots
+        label: Robots
+        description: 'The items that go into the <meta name="robots"> tag'
+        items:
+          type: enum
+          options:
+            - all
+            - index
+            - follow
+            - noindex
+            - nofollow
+            - noimageindex
+            - notranslate
+            - none
+          default: all
+      - type: list
+        name: extra
+        label: Extra
+        description: 'Additional definition for specific meta tags such as open-graph, twitter, etc.'
+        items:
+          type: object
+          labelField: name
+          fields:
+            - type: string
+              name: name
+              default: ""
+            - type: string
+              name: value
+              default: ""
+            - type: string
+              name: keyName
+              default: name
+            - type: boolean
+              name: relativeUrl

@@ -1,12 +1,14 @@
 ---
-title: Pricing
+title: FAQ
 sections:
   - type: hero_section
     title: Frequently Asked Questions
-    subtitle: My Answers
+    subtitle: >-
+      My answers
     align: center
     padding_top: medium
     padding_bottom: small
+    background_color: none
   - type: grid_section
     grid_items:
       - title: What is your process?
@@ -50,13 +52,32 @@ sections:
     grid_gap_horiz: medium
     grid_gap_vert: medium
     enable_cards: true
+    align: center
     padding_top: medium
     padding_bottom: medium
-    has_border: false
     background_color: secondary
     background_image: images/watercolor.png
     background_image_repeat: repeat
     background_image_size: contain
-    background_image_opacity: 10
+    background_image_opacity: 12
+seo:
+  title: Frequently Asked Questions
+  description: This is the faq page
+  extra:
+    - name: og:type
+      value: website
+      keyName: property
+    - name: og:title
+      value: Frequently Asked Questions
+      keyName: property
+    - name: og:description
+      value: This is the faq page
+      keyName: property
+    - name: twitter:card
+      value: summary
+    - name: twitter:title
+      value: Frequently Asked Questions
+    - name: twitter:description
+      value: This is the faq page
 layout: advanced
 ---

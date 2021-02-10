@@ -2,15 +2,15 @@
 title: Home
 sections:
   - type: hero_section
-    title: 'Hi, I’m Alyvia. I help my clients succeed online.'
+    title: Hi, I’m Alyvia. I help my clients succeed online.
     subtitle: >-
-      I will handle your website design and production, social media accounts
-      and digital advertisements for you, at an affordable price.
+      I will handle your website design and production, social media accounts and digital advertisements for you, at an affordable price.
     actions:
       - label: Contact Me
         url: /contact
         style: primary
-    image: images/hero_2.png
+    image: images/hero.png
+    image_alt: A smiling woman
     media_position: right
     media_width: fifty
     align: left
@@ -27,20 +27,28 @@ sections:
     align: center
     grid_items:
       - image: images/logo-1.svg
+        image_alt: Logo 1
         image_align: center
       - image: images/logo-2.svg
+        image_alt: Logo 2
         image_align: center
       - image: images/logo-3.svg
+        image_alt: Logo 3
         image_align: center
       - image: images/logo-4.svg
+        image_alt: Logo 4
         image_align: center
       - image: images/logo-5.svg
+        image_alt: Logo 5
         image_align: center
       - image: images/logo-6.svg
+        image_alt: Logo 6
         image_align: center
       - image: images/logo-7.svg
+        image_alt: Logo 7
         image_align: center
       - image: images/logo-8.svg
+        image_alt: Logo 8
         image_align: center
     grid_cols: four
     grid_gap_horiz: medium
@@ -50,7 +58,7 @@ sections:
     subtitle: What I do
     features:
       - title: Content Creation
-        subtitle: 'Website, blog, social media and more.'
+        subtitle: Website, blog, social media and more.
         content: >-
           I will handle content writing for your digital assets, from
           newsletters and emails, to Facebook and Google campaigns, whitepapers,
@@ -63,6 +71,7 @@ sections:
             icon: arrow-right
             icon_position: right
         image: images/feature-1.svg
+        image_alt: Feature 1 illustration
         media_position: right
         media_width: sixty
       - title: Online Store Management
@@ -79,6 +88,7 @@ sections:
             icon: arrow-right
             icon_position: right
         image: images/feature-2.svg
+        image_alt: Feature 2 illustration
         media_position: right
         media_width: sixty
       - title: Technical Content
@@ -95,6 +105,7 @@ sections:
             icon: arrow-right
             icon_position: right
         image: images/feature-3.svg
+        image_alt: Feature 3 illustration
         media_position: right
         media_width: sixty
     feature_padding_vert: large
@@ -149,9 +160,9 @@ sections:
     background_image: images/watercolor.png
     background_image_repeat: repeat
     background_image_size: contain
-    background_image_opacity: 10
+    background_image_opacity: 12
   - type: form_section
-    content: >
+    content: >-
       ## Let's talk
 
 
@@ -160,7 +171,7 @@ sections:
     content_align: left
     form_position: right
     form_width: fifty
-    form_layout: inline
+    form_layout: stacked
     enable_card: true
     form_id: contact-form
     form_action: /thank-you
@@ -175,14 +186,6 @@ sections:
         label: Email
         default_value: Your email address
         is_required: true
-      - input_type: select
-        name: subject
-        label: Subject
-        default_value: Please select
-        options:
-          - Service One
-          - Service Two
-          - Service Three
       - input_type: textarea
         name: message
         label: Message
@@ -202,5 +205,31 @@ sections:
     background_image_repeat: repeat
     background_image_size: contain
     background_image_opacity: 8
+seo:
+  title: Stackbit Personal Theme
+  description: The preview of the Personal theme
+  extra:
+    - name: og:type
+      value: website
+      keyName: property
+    - name: og:title
+      value: Stackbit Personal Theme
+      keyName: property
+    - name: og:description
+      value: The preview of the Personal theme
+      keyName: property
+    - name: og:image
+      value: images/personal-preview.png
+      keyName: property
+      relativeUrl: true
+    - name: twitter:card
+      value: summary_large_image
+    - name: twitter:title
+      value: Stackbit Personal Theme
+    - name: twitter:description
+      value: The preview of the Personal theme
+    - name: twitter:image
+      value: images/personal-preview.png
+      relativeUrl: true
 layout: advanced
 ---

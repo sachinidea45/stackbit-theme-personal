@@ -1,9 +1,10 @@
 ---
-title: General enquiries
+title: Contact
 sections:
   - type: hero_section
     title: Contact Me
-    subtitle: Fill out the form below and I will get in touch within 1 business day.
+    subtitle: >-
+      Fill out the form below and I will get in touch within 1 business day.
     align: center
     padding_top: medium
     padding_bottom: medium
@@ -28,7 +29,7 @@ sections:
     content_align: left
     form_position: left
     form_width: fifty
-    form_layout: inline
+    form_layout: stacked
     enable_card: true
     form_id: contact-form
     form_action: /thank-you
@@ -43,14 +44,6 @@ sections:
         label: Email
         default_value: Your email address
         is_required: true
-      - input_type: select
-        name: subject
-        label: Subject
-        default_value: Please select
-        options:
-          - Error on the site
-          - Sponsorship
-          - Other
       - input_type: textarea
         name: message
         label: Message
@@ -70,5 +63,24 @@ sections:
     background_image_repeat: repeat
     background_image_size: contain
     background_image_opacity: 8
+seo:
+  title: Contact
+  description: This is the contact page
+  extra:
+    - name: og:type
+      value: website
+      keyName: property
+    - name: og:title
+      value: Contact
+      keyName: property
+    - name: og:description
+      value: This is the contact page
+      keyName: property
+    - name: twitter:card
+      value: summary
+    - name: twitter:title
+      value: Contact
+    - name: twitter:description
+      value: This is the contact page
 layout: advanced
 ---

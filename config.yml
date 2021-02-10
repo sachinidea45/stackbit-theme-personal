@@ -1,18 +1,18 @@
 baseurl: "/"
-title: "Stackbit DIY Theme"
-init_is: "js/init.js"
+title: "Stackbit Personal Theme"
+init_js: "js/init.js"
 page_load_js: "js/page-load.js"
 page_unload_js: "js/page-unload.js"
 params:
-  description: A "do it yourself" theme for Stackbit
-  layout: boxed
+  layout_type: boxed
   style: classic
   palette: red
   mode: light
   base_font: serif
   header:
-    title: Marketing Guide
+    title: Personal Theme
     logo: "images/logo.svg"
+    logo_alt: Alyvia logo
     has_primary_nav: true
     primary_nav_links:
       - label: FAQ
@@ -25,34 +25,26 @@ params:
         url: /contact
         style: link
     has_secondary_nav: false
-    secondary_nav_links:
-      - label: About
-        url: /about
-        style: link
-      - label: Style Guide
-        url: /style-guide
-        style: link
     has_anncmnt: false
-    anncmnt_content: >-
-      Curabitur ac tellus mattis, tempor ipsum eu, eleifend sapien. **[Learn More](/pricing/)**
-    anncmnt_align: left
-    anncmnt_is_home_only: true
-    anncmnt_has_close: true
-    anncmnt_id: new-features
   footer:
     logo: "images/logo.svg"
+    logo_alt: Alyvia logo
     has_primary_nav: true
-    primary_nav_title: Company
     primary_nav_links:
       - label: About
         url: /about
         style: link
+      - label: FAQ
+        url: /faq
+        style: link
+      - label: Contact me
+        url: /contact
+        style: link
+    has_secondary_nav: true
+    secondary_nav_links:
       - label: Style Guide
         url: /style-guide
         style: link
-    has_secondary_nav: true
-    secondary_nav_title: Legal
-    secondary_nav_links:
       - label: Terms & Conditions
         url: /terms-conditions
         style: link
@@ -68,11 +60,18 @@ params:
         icon: twitter
         icon_position: center
         new_window: true
-      - label: GitHub
-        url: https://github.com/
+      - label: Facebook
+        url: https://www.facebook.com/
         style: link
         has_icon: true
-        icon: github
+        icon: facebook
+        icon_position: center
+        new_window: true
+      - label: Instagram
+        url: https://www.instagram.com/
+        style: link
+        has_icon: true
+        icon: instagram
         icon_position: center
         new_window: true
       - label: LinkedIn
@@ -82,25 +81,8 @@ params:
         icon: linkedin
         icon_position: center
         new_window: true
-      - label: LinkedIn
-        url: https://www.youtube.com/
-        style: link
-        has_icon: true
-        icon: youtube
-        icon_position: center
-        new_window: true
-      - label: LinkedIn
-        url: https://vimeo.com/
-        style: link
-        has_icon: true
-        icon: vimeo
-        icon_position: center
-        new_window: true
-    content: "&copy; Stackbit-DIY. All rights reserved."
-    links:
-      - label: Made with Stackbit.
-        url: https://www.stackbit.com
-        style: link
+    content: >-
+      &copy; Stackbit. All rights reserved. This Jamstack site was created with <a href="https://www.stackbit.com/?utm_source=deployed-footer" target="_blank" rel="noopener">Stackbit</a>. Create yours <a href="https://app.stackbit.com/create?theme=personal&utm_source=deployed-footer" target="_blank" rel="noopener">now</a>
 sass:
   input_file: sass/main.scss
   output_file: css/main.css
@@ -108,4 +90,4 @@ sass:
   outputStyle: expanded
   precision: 10
 templates:
-  body_class: "layout-{{ site.params.layout }} style-{{ site.params.style }} palette-{{ site.params.palette }} mode-{{ site.params.mode }} font-{{ site.params.base_font }}"
+  body_class: "layout-{{ site.params.layout_type }} style-{{ site.params.style }} palette-{{ site.params.palette }} mode-{{ site.params.mode }} font-{{ site.params.base_font }}"
