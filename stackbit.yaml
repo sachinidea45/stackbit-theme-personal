@@ -17,7 +17,7 @@ logicFields:
   - form_section.background_image_opacity
 metadata:
   title: Personal
-  description: Personal Stackbit theme
+  description: Consulting and freelance
   author: Stackbit
   authorURL: 'https://www.stackbit.com'
   images:
@@ -1498,6 +1498,7 @@ models:
         label: URL
         required: true
         widget: url
+        default: "#"
       - type: enum
         name: style
         label: Style
